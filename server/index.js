@@ -14,8 +14,8 @@ app.post('/compile', (req, res) => {
   let input = req.body.input;
 
   let data = {
-    code: btoa(code),
-    input: btoa(input),
+    code: Buffer.from(code).toString('base64'),
+    input: Buffer.from(input).toString('base64'),
   };
   
   let config = {
