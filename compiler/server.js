@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Testing routers
-app.get('/', (req, res) => {
+app.get('/api/test', (req, res) => {
     res.send("API IS RUNNING")
 })
 

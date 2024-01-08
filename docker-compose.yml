@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  compiler-app:
+    build:
+      context: ./compiler
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  node-app:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - compiler-app
+    networks:
+      - app-network
+
+  react-app:
+    build:
+      context: ./react
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - node-app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
