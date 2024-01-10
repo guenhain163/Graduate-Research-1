@@ -86,7 +86,6 @@ const CCompile = async (code, input) => {
   let executePath = getExecutablePath(uniqueFileName);
   let cPath = getCPath(uniqueFileName);
   let ipPath = getInputPath(uniqueFileName);
-  console.log(cPath, ipPath);
 
   await saveFile(cPath, code);
   await saveFile(ipPath, input);

@@ -6,9 +6,13 @@ const Navbar = ({ userLang, setUserLang, userTheme,
 	setUserTheme, fontSize, setFontSize }) => {
 	const languages = [
 		{ value: "c", label: "C" },
-		{ value: "cpp", label: "C++" },
+		{ value: "c_cpp", label: "C++" },
+		// { value: "csharp", label: "C#" },
 		{ value: "python", label: "Python" },
 		{ value: "java", label: "Java" },
+		// { value: "golang", label: "Golang" },
+		// { value: "ruby", label: "Ruby" },
+		// { value: "nodejs", label: "NodeJs" },
 	];
 	const themes = [
 		{ value: "vs-dark", label: "Dark" },

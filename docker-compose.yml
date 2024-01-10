@@ -2,6 +2,7 @@ version: '3'
 
 services:
   compiler-app:
+    container_name: compiler-app
     build:
       context: ./compiler
       dockerfile: Dockerfile
@@ -11,6 +12,7 @@ services:
       - app-network
 
   node-app:
+    container_name: node-app
     build:
       context: ./server
       dockerfile: Dockerfile
@@ -22,6 +24,7 @@ services:
       - app-network
 
   react-app:
+    container_name: react-app
     build:
       context: ./react
       dockerfile: Dockerfile

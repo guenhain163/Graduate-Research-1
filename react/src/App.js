@@ -41,13 +41,12 @@ function App() {
 		}
 
 		// Post request to compile endpoint
-		Axios.post(`http://128.199.95.78:8000/compile`, {
+		Axios.post(`http://localhost:8000/compile`, {
 			code: userCode,
 			language: userLang,
 			input: userInput
 		}).then((res) => {
-			// setUserOutput(res.data.output);
-			setUserOutput(res.data.stdout);
+			setUserOutput(res.data.output);
 		}).then(() => {
 			setLoading(false);
 		})

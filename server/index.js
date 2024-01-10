@@ -14,20 +14,43 @@ app.post('/compile', (req, res) => {
   let input = req.body.input;
 
   let data = {
-    code: Buffer.from(code).toString('base64'),
-    input: Buffer.from(input).toString('base64'),
+    langEnum: [
+      'php',
+      'python',
+      'c',
+      'c_cpp',
+      'csharp',
+      'kotlin',
+      'golang',
+      'r',
+      'java',
+      'typescript',
+      'nodejs',
+      'ruby',
+      'perl',
+      'swift',
+      'fortran',
+      'bash',
+    ],
+    code: code,
+    input: input,
+    lang: language,
   };
-  
-  let config = {
-    method: 'post',
-    url: `http://128.199.95.78:8080/api/${language}`,
+
+  const options = {
+    method: 'POST',
+    url: 'https://code-compiler10.p.rapidapi.com/',
     headers: {
+      'content-type': 'application/json',
+      'x-compile': 'rapidapi',
       'Content-Type': 'application/json',
+      'X-RapidAPI-Key': '69013fb41amshfc8ac3529deff05p16ea8ajsnbb217edc6a78',
+      'X-RapidAPI-Host': 'code-compiler10.p.rapidapi.com',
     },
     data: data,
   };
   //calling the code compilation API
-  Axios(config)
+  Axios(options)
     .then((response) => {
       res.send(response.data);
       console.log(response.data);
